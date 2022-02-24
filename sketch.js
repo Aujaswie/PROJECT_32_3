@@ -43,14 +43,13 @@ function setUp (){
 
   polygon = new hexagon (10,100,50);
  
-  sling = new Sling(polygon.body,{x:20,y:50});
+  slingShot = new Sling(polygon.body,{x:20,y:50});
 
   Engine.run(engine);
 }
 
 function draw() {
   background(0);
-  Engine.update(engine);
 
   textSize(20);
   fill("255,255,255")
@@ -101,8 +100,8 @@ function draw() {
   fill("lightpink")
   stand1.display()
 
-  fill("0")
-  sling.display();
+  fill("red")
+  slingShot.display();
 
   polygon.display();
 }
@@ -114,11 +113,11 @@ function draw() {
 
 
 function mouseReleased(){
-  sling.fly();
+  slingShot.fly();
 }
 
 function keyPressed(){
     if(keyCode === 32){
-        sling.attach(polygon.body);
+        slingShot.attach(polygon.body);
     }
 }
